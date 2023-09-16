@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+        To do list app
+        </title>
+        <link href = "../static/bootstrap-4/css/bootstrap.min.css" rel = "stylesheet">
+    </head>
+    <body>
+        
+        <div class = "jumpbotron" style = "margin-bottom:0">
+            <a class = "navbar-brand" href="#">
+                <img src="../static/img/Logo-Vietcombank.png" alt = "logo" style = "height:80px">
+            </a>
+        </div>
+
+        <nav class = "navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class = "navbar-nav">
+                <li class = "nav-item">
+                    <a class ="nav-link" href = "#">Home</a>
+                </li>
+                <li class = "nav-item">
+                    <a class ="nav-link" href = "#">Sign in</a>
+                </li>
+                <li class = "nav-item">
+                    <a class ="nav-link active" href = "#">Sign up</a>
+                </li>
+            </ul>
+        </nav>
+        <div class = "container">
+
+            <div class ="jumptron text-center">
+                <h1>To do list app</h1>
+                <p class = "lead"></p>
+                <p>
+                    <a class = "btn btn-lg btn-success" href="#">Sign up now<a>
+                </p>
+            </div>
+
+            <div class = "row marketing text-center">
+                {%for todoitem in todolist%}
+                <div class = "col-sm-4">
+                    <h4>{{todoitem.name}}</h4>
+                    <p>{{todoitem.description}}</p>
+                </div>
+                {%endfor%}
+            </div>
+
+        </div>
+
+        <footer class ="fixed-bottom bg-dark text-light text-light text-center py-3" style = "margin-bottom:0">
+            <div class="container">
+                <p>Copyright @2023 by HideOnBonh</p>
+            </div>
+        </footer>
+    </body>
+</html>
