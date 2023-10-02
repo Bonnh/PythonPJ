@@ -1,7 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from forms import SignUpForm
+
 
 app = Flask(__name__)
-@app.route('/')
+app.config['SECRET_KEY']="HideOnBonh"
+#
+
 
 # def main():
 #     return '"Hello"'
@@ -9,6 +13,7 @@ app = Flask(__name__)
 #     # app.run()
 #     app.run(host='127.0.0.1', port='8080', debug=True)
 
+@app.route('/')
 def main():
     todolist = [
         {
@@ -47,6 +52,23 @@ def main():
     
     #truy cập vào file index.html
     return render_template('index.html', todolist = todolist)
+
+@app.route('/signup', methods=['GET','POST'])
+def showsignup():
+    form = SignUpForm()
+    if form.validate_on_submit():
+        print("Validate on submit")
+        _fname = form.inputFirstName.data
+        _lname = form.inputLastName.data
+        _email = form.inputEmail.data
+        _password = form.inputPassword.data
+
+        
+        user = {'fname':_fname,'lname':_lname, 'email':_email, 'password':_password}
+        return render_template('signUpSuccess.html',user = user)
+    
+    print("Not validate on submit")
+    return render_template('signup.html', form = form)
 
 if  __name__ == '__main__':
     # app.run()
