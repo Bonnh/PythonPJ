@@ -14943,3 +14943,10 @@ myweb/venv/Scripts/mako-render.exe
 myweb/venv/Scripts/pip.exe
 myweb/venv/Scripts/pip3.11.exe
 myweb/venv/Scripts/pip3.exe
+midtest/__pycache__/forms.cpython-311.pyc
+midtest/__pycache__/main.cpython-311.pyc
+midtest/__pycache__/models.cpython-311.pyc
+midtest/__pycache__/project_route.cpython-311.pyc
+midtest/__pycache__/task_routes.cpython-311.pyc
+.gitignore
+.gitignore
