@@ -1,0 +1,35 @@
+{% extends "userbase.html" %}
+{% block content %}
+    <div class="container">
+        <div class="jumptron text-center">
+            <h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+        </div>
+
+        {% if user.tasks %}
+        <div class="jumptron"> 
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in user.tasks %}
+                    <tr>
+                        <td>{{ task.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <div class="jumptron text-center">
+                <div class="alert alert-warning text-center">
+                    <h4>You have no task!</h1>
+                </div>
+                <p class="lead"></p>
+                <p><a class="btn btn-lg btn-success" href="/newTask">New task<a></p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

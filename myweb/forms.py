@@ -12,8 +12,20 @@ class SignUpForm(FlaskForm):
         DataRequired (message="Please enter your email address!")])
     inputPassword = PasswordField('Password',
         [InputRequired (message="Please enter your password!"),
-        EqualTo('inputConfirm Password', message="Passwords does not match!")]) 
+        EqualTo('inputConfirmPassword', message="Passwords does not match!")]) 
     inputConfirmPassword = PasswordField('Confirm password')
     submit = SubmitField('Sign Up')
+    
+class SignInForm(FlaskForm):
+    inputEmail = StringField('Email address',
+        [Email(message="Not a valid email address!"),
+        DataRequired(message="Please enter your first name!")])
+    inputPassword = PasswordField('Password',
+        [InputRequired (message="Please enter your password!")]) 
+    submit = SubmitField('Sign In')
 
+class TaskForm (FlaskForm): 
+    inputDescription = StringField('Task Description', 
+        [DataRequired (message="Please enter your task content!")]) 
+    submit= SubmitField('Create Task')
     
