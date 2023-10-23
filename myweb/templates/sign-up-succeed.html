@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block items %}
+    {% if is_logged_in %}
+        <li class="nav-item px-4 change">
+        <a class="nav-link font-nav pd-li-nav" href="/new_project">New Project</a>
+    </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+    {% else %}
+        {{ super() }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        User created successfully!
+    </h1>
+    <p>
+        User Fullname: {{ user.first_name +   " " +   user.last_name }}
+    </p>
+    <p>
+        User Email: {{ user.email }}
+    </p>
+{% endblock %}

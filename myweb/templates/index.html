@@ -1,23 +1,25 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block content  %}
-    <div class ="container">
-        <div class ="jumbotron text-center">
-            <h1>Mid test</h1>
-            <p class = "lead"></p>
-            <p>
-                <a class = "btn btn-lg btn-success" href="/signup">Sign up now<a>
-            </p>
-        </div>
+{% block items %}
+    {% if is_logged_in %}
+        <li class="nav-item px-4 change">
+            <a class="nav-link font-nav pd-li-nav" href="/new_project">New Project</a>
+        </li>
+        <li class="nav-item px-4 change">
+            <a class="nav-link font-nav pd-li-nav" href="/logout">Log Out</a>
+        </li>
+    {% else %}
+        {{ super() }}
+    {% endif %}
+{% endblock %}
 
-        <div class = "row marketing text-center">
-            {%for todoitem in todolist%}
-            <div class = "col-sm-4">
-                <h4>{{todoitem.name}}</h4>
-                <p>{{todoitem.description}}</p>
-            </div>
-            {%endfor%}
-        </div>
-
+{% block content %}
+    <!-- Jumbotron -->
+    <div class="p-5 text-center">
+        <h1 class="mb-3">Welcome to Projects Management.</h1>
+        <h4 class="mb-3">This is the connected workspace where
+            better, faster work happens.</h4>
+        <a class="btn btn-primary btn-dark" href="" role="button">Get it free →</a>
     </div>
-{% endblock  %}
+    <!-- Jumbotron -->
+{% endblock %}
